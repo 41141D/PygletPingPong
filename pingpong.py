@@ -60,8 +60,17 @@ def reset_ball(direction):
     ball_dy = random.uniform(-150,150)
 def update_score_label():
      score_label.text =  f"{left_score} - {right_score}"
+
+def paddle_color_change():
+    r = random.randint(0, 255)
+    g = random.randint(0, 255)
+    b = random.randint(0, 255)
+    left_paddle.color = (r,g,b)
+
+
 def update(dt):
     global ball_dx, ball_dy,left_score, right_score, game_over,WINNING_SCORE
+    paddle_color_change()
     if game_over:
         return
     if keys[key.W]:
